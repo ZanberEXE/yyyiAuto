@@ -29,6 +29,16 @@ def getGameWindow():
 
 def startLazyClear():
     """One Run when Story is already selected."""
+
+    logging.info('Looking for Farm Stage.')
+    while True:  # loop because it could still be in loading screen
+        pos = pui.locateCenterOnScreen(imgPath('farm_0.png'), confidence=0.9)
+        if pos is not None:
+            logging.info('Farm Stage located at: %s', pos)
+            break
+    pui.click(pos, duration=0.25)
+    logging.info('Clicked on Farm Stage.')
+
     logging.info('Looking for Accept Udon Overflow Button.')
     while True: # loop because it could still be in loading screen
         pos = pui.locateCenterOnScreen(imgPath('menu_1.png'), confidence=0.9)
@@ -65,14 +75,14 @@ def startLazyClear():
     pui.click(pos, duration=0.25)
     logging.info('Clicked on Sortie Button.')
 
-    # logging.info('Looking for Start Button')
-    # while True:  # loop because it could still be in loading screen
-    #     pos = pui.locateCenterOnScreen(imgPath('menu_5_1.png'), confidence=0.9)
-    #     if pos is not None:
-    #         logging.info('Start Button located at: %s', pos)
-    #         break
-    # pui.click(pos, duration=0.25)
-    # logging.info('Clicked on Start Button.')
+    logging.info('Looking for Start Button')
+    while True:  # loop because it could still be in loading screen
+        pos = pui.locateCenterOnScreen(imgPath('menu_5_1.png'), confidence=0.9)
+        if pos is not None:
+            logging.info('Start Button located at: %s', pos)
+            break
+    pui.click(pos, duration=0.25)
+    logging.info('Clicked on Start Button.')
 
     logging.info('Looking for Winning Screen')
     while True:  # loop because it could still be in loading screen
