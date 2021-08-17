@@ -9,6 +9,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s.%(msecs)03d: %(messa
 def one_Run():
     getGameWindow()
     while True:
+        #check rewards
+        #check if story
+        #clear stage
         startLazyClear()
     # time.sleep(8)
     # for i in range(0, 3):
@@ -39,15 +42,15 @@ def click(x,y): # click function if pui not needed
 def startLazyClear():
     """One Run when Story is already selected."""
 
-    logging.info('Looking for Farm Stage.')
-    while True:  # loop because it could still be in loading screen
-        pos = pui.locateCenterOnScreen(imgPath('farm_0.png'), confidence=0.9)
-        time.sleep(0.1)
-        if pos is not None:
-            logging.info('Farm Stage located at: %s', pos)
-            break
-    pui.click(pos, duration=0.25)
-    logging.info('Clicked on Farm Stage.')
+    # logging.info('Looking for Farm Stage.')
+    # while True:  # loop because it could still be in loading screen
+    #     pos = pui.locateCenterOnScreen(imgPath('farm_0.png'), confidence=0.9)
+    #     time.sleep(0.1)
+    #     if pos is not None:
+    #         logging.info('Farm Stage located at: %s', pos)
+    #         break
+    # pui.click(pos, duration=0.25)
+    # logging.info('Clicked on Farm Stage.')
 
     logging.info('Looking for Accept Udon Overflow Button.')
     while True: # loop because it could still be in loading screen
@@ -129,7 +132,7 @@ def startLazyClear():
 def checkRewards():
     logging.info('Looking for Chapter Rewards')
     while True:  # loop because it could still be in loading screen
-        pos = pui.locateCenterOnScreen(imgPath('chapter_clear_bonus.png'), confidence=0.9)
+        pos = pui.locateCenterOnScreen(imgPath('rewards_ok.png'), confidence=0.9)
         time.sleep(0.01)
         if pos is not None:
             logging.info('Reward Button located at: %s', pos)
